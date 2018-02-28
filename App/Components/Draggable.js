@@ -16,8 +16,8 @@ export default class Draggable extends Component {
   }
   componentWillMount() {
     // Add a listener for the delta value change
-    // this._val = { x:0, y:0 }
-    // this.state.pan.addListener((value) => this._val = value);
+    this._val = { x: 0, y: 0 }
+    this.state.pan.addListener((value) => this._val = value);
 
     // Initialize PanResponder with move handling
     this.panResponder = PanResponder.create({
@@ -27,32 +27,10 @@ export default class Draggable extends Component {
         dy : this.state.pan.y
       }]),
       onPanResponderRelease: (e, gesture) => {
-        console.log('e release ', e)
-        console.log('gesture release ', gesture)
-        // this.state.pan.setValue({ x:0, y:0})
+        this.props.savePosition({x: gesture.dx, y: gesture.dy})
+        this.state.pan.flattenOffset()
       }
-      // onPanResponderRelease: (e, gesture) => {
-
-      //   if (this.isDropArea(gesture)) {
-      //     Animated.timing(this.state.opacity, {
-      //     toValue: 0,
-      //     duration: 1000
-      //   }).start(() =>
-      //     this.setState({
-      //       showDraggable: false
-      //     })
-      //   );
-      //   } else {
-      //     Animated.spring(this.state.pan, {
-      //       toValue: { x: 0, y: 0 },
-      //       friction: 5
-      //     }).start();
-      //   }
-        // adjusting delta value
-      // this.state.pan.setValue({ x:0, y:0})
-      // }
     });
-    // this.state.pan.setValue({ x: 0, y: 0})
   }
 
   render() {
@@ -71,6 +49,7 @@ export default class Draggable extends Component {
   }
 }
 
+// Define size of tag
 let CIRCLE_RADIUS = 30;
 let styles = StyleSheet.create({
   circle: {

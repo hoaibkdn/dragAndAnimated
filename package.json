@@ -36,6 +36,7 @@
     "react-native-animatable": "^1.2.4",
     "react-native-config": "^0.10.0",
     "react-native-device-info": "0.11.0",
+    "react-native-draggable": "^1.0.13",
     "react-native-modal": "^5.1.1",
     "react-native-vector-icons": "4.3.0",
     "react-navigation": "1.0.0-beta.11",

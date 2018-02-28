@@ -4,7 +4,9 @@ import { Metrics, ApplicationStyles } from '../../Themes/'
 export default StyleSheet.create({
   ...ApplicationStyles.screen,
   mainContainer: {
-    flex: 1
+    flex: 1,
+    position: 'relative',
+    backgroundColor: 'rgba(0, 0, 0, 0)'
   },
   buttonGroup: {
     height:200,
@@ -12,11 +14,7 @@ export default StyleSheet.create({
     paddingVertical: 50
   },
   row: {
-    flexDirection: "row"
-  },
-  dropZone: {
-    height: 200,
-    backgroundColor: "#00334d"
+    flexDirection: "row",
   },
   text: {
     marginTop: 25,
@@ -49,5 +47,16 @@ export default StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 20,
     textAlign: 'center',
+  },
+  content: {
+    position: 'relative',
+    zIndex: 100,
+    top: 0,
+    left: 0,
+    flex: 1,
+    backgroundColor: 'rgba(0, 0, 0, 0)'
+  },
+  backgroundSize: {
+    height: Metrics.screenHeight
   }
 })
